@@ -4,13 +4,16 @@ import { FaCheck } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 
 export default function ToDoItem({children}){
+	function handleCheckClick(){
+
+	}
 	return(
 		<div className="ToDo">
 			<p>{children}</p>
 			<div style={{
 				marginRight: "0.2rem"
 			}}>
-				<Button>
+				<Button onclick={handleCheckClick}>
 					<FaCheck fontSize="1.4rem" color="green"/>
 				</Button>
 			</div>

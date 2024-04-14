@@ -1,0 +1,14 @@
+.InputField{
+	background-color: white;
+	padding: 0.6rem;
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+input{
+	flex-basis: 87%;
+	padding: 0.3rem;
+	border: solid 2px;
+}

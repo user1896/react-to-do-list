@@ -1,0 +1,3 @@
+.Main{
+	width: clamp(300px, 35vw, 1300px);
+}

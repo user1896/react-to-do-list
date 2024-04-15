@@ -1,14 +1,17 @@
 import '../styles/Main.css'
+import { useState } from 'react';
 import ToDoItem from "./ToDoItem";
 import InputField from "./InputField";
 
 export default function Main(){
+	const [index, setIndex] = useState(0)
+
 	return(
 		<div className="Main">
-			<InputField />
+			<InputField index={index} setIndex={setIndex}/>
 
 			<ToDoItem>
-				first todo qsdlqlks qsqds
+				{index}
 			</ToDoItem>
 			<ToDoItem>
 				second todo vkxizev ekcnze

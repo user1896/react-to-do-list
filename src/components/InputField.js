@@ -1,9 +1,10 @@
 import "../styles/InputField.css";
 import { useState } from 'react';
 import Button from "./Button";
+import ToDoItem from "./ToDoItem";
 import { FaPlus } from "react-icons/fa6";
 
-export default function InputField({index, setIndex}){
+export default function InputField({toDoList, setToDoList}){
 	const [inputValue, setInputValue] = useState("")
 
 	function handleChange(e){
@@ -11,7 +12,9 @@ export default function InputField({index, setIndex}){
 	}
 
 	function handleButtonClick(){
-		setIndex(index+1)
+		const newToDo = <ToDoItem key="">{inputValue}</ToDoItem>
+		setInputValue("")
+		setToDoList([newToDo, ...toDoList])
 	}
 
 	return(

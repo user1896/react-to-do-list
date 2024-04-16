@@ -1,3 +1,5 @@
 .Main{
 	width: clamp(300px, 35vw, 1300px);
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }

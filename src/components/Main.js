@@ -1,25 +1,17 @@
 import '../styles/Main.css'
 import { useState } from 'react';
-import ToDoItem from "./ToDoItem";
 import InputField from "./InputField";
 
 export default function Main(){
-	const [index, setIndex] = useState(0)
+	const [toDoList, setToDoList] = useState([])
 
 	return(
 		<div className="Main">
-			<InputField index={index} setIndex={setIndex}/>
+			<InputField toDoList={toDoList} setToDoList={setToDoList} />
 
-			<ToDoItem>
-				{index}
-			</ToDoItem>
-			<ToDoItem>
-				second todo vkxizev ekcnze
-			</ToDoItem>
-			<ToDoItem>
-				third todo csdnvsdhce fckjze third todo csdnvsdhce fckjze third todo csdnvsdhce fckjze third
-				 todo csdnvsdhce fckjze
-			</ToDoItem>
+			<div>
+				{toDoList}
+			</div>
 		</div>
 	)
 }

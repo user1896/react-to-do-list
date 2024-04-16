@@ -12,24 +12,30 @@ export default function InputField({toDoList, setToDoList}){
 		setInputValue(e.target.value)
 	}
 
-	function handleButtonClick(){
+	function handleButtonClick(e){
+		e.preventDefault()
+
 		const newToDo = <ToDoItem key={uuidv4()}>{inputValue}</ToDoItem>
 		setInputValue("")
 		setToDoList([newToDo, ...toDoList])
 	}
 
 	return(
-		<div className="InputField">
-			<input
-				value={inputValue}
-				onChange={handleChange}
-			/>
-			<Button
-				inputLenght={inputValue.length}
-				onclick={handleButtonClick}
-			>
-				<FaPlus fontSize="1.6rem"/>
-			</Button>
-		</div>
+		<>
+			<form onSubmit={handleButtonClick} className="InputField">
+
+				<input
+					className="input"
+					value={inputValue}
+					onChange={handleChange}
+				/>
+				<Button
+					inputLenght={inputValue.length}
+				>
+					<FaPlus fontSize="1.6rem"/>
+				</Button>
+
+			</form>
+		</>
 	)
 }

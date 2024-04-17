@@ -7,7 +7,7 @@ export default function Main(){
 
 	return(
 		<div className="Main">
-			<InputField toDoList={toDoList} setToDoList={setToDoList} />
+			<InputField setToDoList={setToDoList} />
 
 			<div>
 				{toDoList}

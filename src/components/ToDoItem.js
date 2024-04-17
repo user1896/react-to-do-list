@@ -42,8 +42,7 @@ export default function ToDoItem({children, setToDoList, toDoKey}){
 			</div>
 
 			<Button onclick={handleDeleteClick}>
-				{/* <FaRegTrashCan fontSize="1.4rem" color="red" width="4rem" height="100%"/> */}
-				dd
+				<FaRegTrashCan fontSize="1.4rem" color="red" width="4rem" height="100%"/>
 			</Button>
 
 		</div>

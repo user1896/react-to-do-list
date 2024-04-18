@@ -5,24 +5,10 @@ import { FaCheck } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 
 export default function ToDoItem({children, setToDoList, toDoKey}){
-	const [checkParagraph, setcheckParagraph] = useState({
-		isChecked: false,
-		className: ""
-	})
+	const [isChecked, setIsChecked] = useState(false)
 
 	function handleCheckClick(){
-		if(!checkParagraph.isChecked){
-			setcheckParagraph({
-				isChecked: true,
-				className: "checkedParagraph"
-			})
-		}
-		else{
-			setcheckParagraph({
-				isChecked: false,
-				className: ""
-			})
-		}
+		setIsChecked(!isChecked)
 	}
 
 	function handleDeleteClick(e){
@@ -32,8 +18,8 @@ export default function ToDoItem({children, setToDoList, toDoKey}){
 
 	return(
 		<div className="ToDo">
-
-			<p className={checkParagraph.className}>{children}</p>
+			
+			<p className={isChecked && "checkedParagraph"}>{children}</p>
 
 			<div style={{marginRight: "0.2rem"}}>
 				<Button onclick={handleCheckClick}>
@@ -42,7 +28,7 @@ export default function ToDoItem({children, setToDoList, toDoKey}){
 			</div>
 
 			<Button onclick={handleDeleteClick}>
-				<FaRegTrashCan fontSize="1.4rem" color="red" width="4rem" height="100%"/>
+				<FaRegTrashCan fontSize="1.4rem" color="red"/>
 			</Button>
 
 		</div>

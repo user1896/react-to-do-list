@@ -5,7 +5,7 @@ import ToDoItem from "./ToDoItem";
 import { FaPlus } from "react-icons/fa6";
 import { v4 as uuidv4 } from 'uuid';
 
-export default function InputField({setToDoList}){
+export default function InputField({dispatch}){
 	const [inputValue, setInputValue] = useState("")
 
 	function handleChange(e){
@@ -17,11 +17,14 @@ export default function InputField({setToDoList}){
 		const newKey = uuidv4()
 
 		const newToDo = <ToDoItem
-				key={newKey} setToDoList={setToDoList} toDoKey={newKey}
+				key={newKey} toDoKey={newKey} dispatch={dispatch}
 			>
 				{inputValue}
 			</ToDoItem>
-		setToDoList(prevtoDoList => [newToDo, ...prevtoDoList])
+		dispatch({
+			type: 'add',
+			newToDo: newToDo
+		})
 		setInputValue("")
 	}
 

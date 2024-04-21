@@ -4,7 +4,7 @@ import Button from "./Button";
 import { FaCheck } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 
-export default function ToDoItem({children, setToDoList, toDoKey}){
+export default function ToDoItem({children, toDoKey, dispatch}){
 	const [isChecked, setIsChecked] = useState(false)
 
 	function handleCheckClick(){
@@ -12,8 +12,10 @@ export default function ToDoItem({children, setToDoList, toDoKey}){
 	}
 
 	function handleDeleteClick(e){
-		// We want to delete this ToDoItem, so we keep all the other ToDOItems, which they have different keys then him
-		setToDoList(list => list.filter(toDo => toDo.key !== toDoKey))
+			dispatch({
+			type: 'delete',
+			toDoKey: toDoKey
+		})
 	}
 
 	return(

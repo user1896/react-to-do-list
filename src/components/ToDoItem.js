@@ -12,7 +12,7 @@ export default function ToDoItem({children, toDoKey, dispatch}){
 	}
 
 	function handleDeleteClick(e){
-			dispatch({
+		dispatch({
 			type: 'delete',
 			toDoKey: toDoKey
 		})

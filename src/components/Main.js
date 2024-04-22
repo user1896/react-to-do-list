@@ -1,9 +1,9 @@
 import '../styles/Main.css'
-import { useReducer } from 'react';
+import { useImmerReducer } from 'use-immer';
 import InputField from "./InputField";
 
 export default function Main(){
-	const [toDoList, dispatch] = useReducer(toDoListReducer, [])
+	const [toDoList, dispatch] = useImmerReducer(toDoListReducer, [])
 
 	return(
 		<div className="Main">
@@ -16,14 +16,18 @@ export default function Main(){
 	)
 }
 
-function toDoListReducer(currentToDoList, action){
+function toDoListReducer(draft, action){
 	switch(action.type){
 		case 'add': {
-			return [action.newToDo, ...currentToDoList]
+			draft.push(action.newToDo)
+			break
 		}
 		case 'delete': {
 		  //We want to delete this ToDoItem, so we keep all other ToDOItems, which they have different keys then him.
-			return currentToDoList.filter(toDo => toDo.key !== action.toDoKey)
+			return draft.filter(toDo => toDo.key !== action.toDoKey)
+		}
+		default: {
+			throw Error('Unknown action: ' + action.type)
 		}
 	}
 }

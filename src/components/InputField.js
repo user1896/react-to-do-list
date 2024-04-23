@@ -1,12 +1,14 @@
 import "../styles/InputField.css";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Button from "./Button";
 import ToDoItem from "./ToDoItem";
 import { FaPlus } from "react-icons/fa6";
 import { v4 as uuidv4 } from 'uuid';
+import dispatchContext from "../context/dispatchContext";
 
-export default function InputField({dispatch}){
+export default function InputField(){
 	const [inputValue, setInputValue] = useState("")
+	const dispatch = useContext(dispatchContext)
 
 	function handleChange(e){
 		setInputValue(e.target.value)
@@ -17,7 +19,7 @@ export default function InputField({dispatch}){
 		const newKey = uuidv4()
 
 		const newToDo = <ToDoItem
-				key={newKey} toDoKey={newKey} dispatch={dispatch}
+				key={newKey} toDoKey={newKey}
 			>
 				{inputValue}
 			</ToDoItem>

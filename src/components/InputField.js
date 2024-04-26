@@ -4,7 +4,7 @@ import Button from "./Button";
 import ToDoItem from "./ToDoItem";
 import { FaPlus } from "react-icons/fa6";
 import { v4 as uuidv4 } from 'uuid';
-import dispatchContext from "../context/dispatchContext";
+import {dispatchContext} from "../context/dispatchContext";
 
 export default function InputField(){
 	const [inputValue, setInputValue] = useState("")

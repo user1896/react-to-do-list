@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import Button from "./Button";
 import { FaCheck } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
-import dispatchContext from "../context/dispatchContext";
+import {dispatchContext} from "../context/dispatchContext";
 
 export default function ToDoItem({children, toDoKey}){
 	const [isChecked, setIsChecked] = useState(false)
@@ -23,7 +23,7 @@ export default function ToDoItem({children, toDoKey}){
 	return(
 		<div className="ToDo">
 			
-			<p className={isChecked && "checkedParagraph"}>{children}</p>
+			<p className={isChecked ? "checkedParagraph" : ""}>{children}</p>
 
 			<div style={{marginRight: "0.2rem"}}>
 				<Button onclick={handleCheckClick}>

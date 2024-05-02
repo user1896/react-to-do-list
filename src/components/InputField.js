@@ -1,14 +1,14 @@
 import "../styles/InputField.css";
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import Button from "./Button";
 import ToDoItem from "./ToDoItem";
 import { FaPlus } from "react-icons/fa6";
 import { v4 as uuidv4 } from 'uuid';
-import {dispatchContext} from "../context/dispatchContext";
+import {useDispatchContext} from "../context/dispatchContext";
 
 export default function InputField(){
 	const [inputValue, setInputValue] = useState("")
-	const dispatch = useContext(dispatchContext)
+	const dispatch = useDispatchContext()
 
 	function handleChange(e){
 		setInputValue(e.target.value)

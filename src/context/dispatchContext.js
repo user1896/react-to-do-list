@@ -1,8 +1,8 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import { useImmerReducer } from 'use-immer';
 
-export const toDoListContext = createContext(null);
-export const dispatchContext = createContext(null);
+const toDoListContext = createContext(null);
+const dispatchContext = createContext(null);
 
 export function ReducerProvider({children}){
 	const [toDoList, dispatch] = useImmerReducer(toDoListReducer, [])
@@ -14,6 +14,14 @@ export function ReducerProvider({children}){
 			</dispatchContext.Provider>
 		</toDoListContext.Provider>
 	)
+}
+
+export function useToDoListContext(){
+	return useContext(toDoListContext)
+}
+
+export function useDispatchContext(){
+	return useContext(dispatchContext)
 }
 
 function toDoListReducer(draft, action){

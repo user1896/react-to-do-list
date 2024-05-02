@@ -1,10 +1,9 @@
 import '../styles/Main.css';
 import InputField from "./InputField";
-import { toDoListContext } from "../context/dispatchContext";
-import { useContext } from "react";
+import { useToDoListContext } from "../context/dispatchContext";
 
 export default function MainChild(){
-	const toDoList = useContext(toDoListContext)
+	const toDoList = useToDoListContext()
 	return (
 		<div className="Main">
 			<InputField />

@@ -1,13 +1,13 @@
 import '../styles/ToDoItem.css';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import Button from "./Button";
 import { FaCheck } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
-import {dispatchContext} from "../context/dispatchContext";
+import {useDispatchContext} from "../context/dispatchContext";
 
 export default function ToDoItem({children, toDoKey}){
 	const [isChecked, setIsChecked] = useState(false)
-	const dispatch = useContext(dispatchContext)
+	const dispatch = useDispatchContext()
 
 	function handleCheckClick(){
 		setIsChecked(!isChecked)

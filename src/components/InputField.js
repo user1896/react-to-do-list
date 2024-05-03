@@ -1,4 +1,3 @@
-import "../styles/InputField.css";
 import { useState } from 'react';
 import Button from "./Button";
 import ToDoItem from "./ToDoItem";
@@ -32,16 +31,16 @@ export default function InputField(){
 
 	return(
 		<>
-			<form onSubmit={handleButtonClick} className="InputField">
+			<form onSubmit={handleButtonClick} className="bg-white p-2.5 rounded-lg flex justify-between items-center">
 
 				<input
-					className="input"
+					className="basis-10/12 p-1 border-solid border-black border-2"
 					value={inputValue}
 					onChange={handleChange}
 				/>
 				
 				<Button
-					inputLenght={inputValue.length}
+					inputLenght={inputValue.length} hoverBackground="hover:bg-yellow-200"
 				>
 					<FaPlus fontSize="1.6rem"/>
 				</Button>

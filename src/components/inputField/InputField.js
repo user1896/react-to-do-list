@@ -5,10 +5,12 @@ import { FaPlus } from "react-icons/fa6";
 import { v4 as uuidv4 } from 'uuid';
 import {useDispatchContext} from "../../context/dispatchContext";
 import { StyledForm, StyledInput } from "./InputField.styles";
+import { useThemeContext } from "../../context/themeContext";
 
 export default function InputField(){
 	const [inputValue, setInputValue] = useState("")
 	const dispatch = useDispatchContext()
+	const myTheme = useThemeContext()
 
 	function handleChange(e){
 		setInputValue(e.target.value)
@@ -40,9 +42,9 @@ export default function InputField(){
 				/>
 				
 				<Button
-					inputLenght={inputValue.length} hoverBackground="rgb(254 240 138)"
+					inputLenght={inputValue.length} bgHover="rgb(185 235 255)" bgLight={myTheme.color1}
 				>
-					<FaPlus fontSize="1.6rem"/>
+					<FaPlus fontSize="1.6rem" color={myTheme.color3} />
 				</Button>
 
 			</StyledForm>

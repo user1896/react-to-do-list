@@ -2,10 +2,12 @@ import { StyledButton } from "./Button.styles";
 
 const gg = "red"
 
-export default function Button({children, onclick, inputLenght, hoverBackground}){
+export default function Button({children, onclick, inputLenght, bgHover, bgLight, bgDark}){
 	return(
 		<StyledButton
-			$hoverBackground={hoverBackground}
+			$bgHover={bgHover}
+			$bgLight={bgLight}
+			$bgDark={bgDark}
 			onClick={onclick}
 			disabled={
 				inputLenght === 0

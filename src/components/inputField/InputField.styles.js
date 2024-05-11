@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const StyledForm = styled.form`
-	background-color: rgb(255 255 255);
+	background-color: ${ props => props.theme.lighting ? props.theme.color3 : props.theme.color1 };
 	padding: 0.625rem/* 10px */;
 	border-radius: 0.5rem/* 8px */;
 	display: flex;

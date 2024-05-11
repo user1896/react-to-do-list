@@ -1,10 +1,10 @@
 import { ReducerProvider } from "../context/dispatchContext";
-import MainChild from "./MainChild";
+import Main from "./main/Main";
 
-export default function Main(){
+export default function MainContainer(){
 	return(
 		<ReducerProvider>
-			<MainChild/>
+			<Main/>
 		</ReducerProvider>
 	)
 }

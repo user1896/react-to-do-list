@@ -1,17 +1,13 @@
 import { useState } from 'react';
-import Button from "./Button";
+import Button from "../button/Button";
 import { FaCheck } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
-import {useDispatchContext} from "../context/dispatchContext";
+import {useDispatchContext} from "../../context/dispatchContext";
+import { StyledToDo, StyledParagraph, MarginRightDiv } from "./ToDoItem.styles";
 
 export default function ToDoItem({children, toDoKey}){
 	const [isChecked, setIsChecked] = useState(false)
 	const dispatch = useDispatchContext()
-
-	let pClass="basis-4/5 mr-auto overflow-hidden "
-	if(isChecked){
-		pClass += "line-through"
-	}
 
 	function handleCheckClick(){
 		setIsChecked(!isChecked)
@@ -25,20 +21,20 @@ export default function ToDoItem({children, toDoKey}){
 	}
 
 	return(
-		<div className="bg-white flex flex-row items-center mt-3 rounded-lg p-2.5">
+		<StyledToDo >
 			
-			<p className={pClass}>{children}</p>
+			<StyledParagraph $isChecked={isChecked} >{children}</StyledParagraph>
 
-			<div className='mr-1'>
-				<Button onclick={handleCheckClick} hoverBackground="hover:bg-lime-200">
+			<MarginRightDiv >
+				<Button onclick={handleCheckClick} hoverBackground="rgb(217 249 157)">
 					<FaCheck fontSize="1.4rem" color="green"/>
 				</Button>
-			</div>
+			</MarginRightDiv>
 
-			<Button onclick={handleDeleteClick} hoverBackground="hover:bg-rose-200">
+			<Button onclick={handleDeleteClick} hoverBackground="rgb(254 205 211)">
 				<FaRegTrashCan fontSize="1.4rem" color="red"/>
 			</Button>
 
-		</div>
+		</StyledToDo>
 	)
 }

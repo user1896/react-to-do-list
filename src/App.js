@@ -1,10 +1,11 @@
-import Main from "./components/Main";
+import MainContainer from "./components/MainContainer";
+import { StyledAppDiv } from "./App.styles";
 
 function App() {
   return (
-    <div className="bg-sky-600 flex justify-center items-center min-h-screen">
-      <Main />
-    </div>
+    <StyledAppDiv>
+      <MainContainer />
+    </StyledAppDiv>
   );
 }
 

@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Button from "./Button";
-import ToDoItem from "./ToDoItem";
+import Button from "../button/Button";
+import ToDoItem from "../toDoItem/ToDoItem";
 import { FaPlus } from "react-icons/fa6";
 import { v4 as uuidv4 } from 'uuid';
-import {useDispatchContext} from "../context/dispatchContext";
+import {useDispatchContext} from "../../context/dispatchContext";
+import { StyledForm, StyledInput } from "./InputField.styles";
 
 export default function InputField(){
 	const [inputValue, setInputValue] = useState("")
@@ -31,21 +32,20 @@ export default function InputField(){
 
 	return(
 		<>
-			<form onSubmit={handleButtonClick} className="bg-white p-2.5 rounded-lg flex justify-between items-center">
+			<StyledForm onSubmit={handleButtonClick} >
 
-				<input
-					className="basis-10/12 p-1 border-solid border-black border-2"
+				<StyledInput
 					value={inputValue}
 					onChange={handleChange}
 				/>
 				
 				<Button
-					inputLenght={inputValue.length} hoverBackground="hover:bg-yellow-200"
+					inputLenght={inputValue.length} hoverBackground="rgb(254 240 138)"
 				>
 					<FaPlus fontSize="1.6rem"/>
 				</Button>
 
-			</form>
+			</StyledForm>
 		</>
 	)
 }

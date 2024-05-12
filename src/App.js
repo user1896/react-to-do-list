@@ -4,6 +4,8 @@ import Button from "./components/button/Button";
 import { StyledAppDiv, StyledButtonDiv } from "./App.styles";
 import { ThemeProvider } from "styled-components";
 import { themeContext } from "./context/themeContext";
+import { MdDarkMode } from "react-icons/md";
+import { IoMdSunny } from "react-icons/io";
 
 function App() {
   const [lighting, setLighting] = useState(false)
@@ -16,7 +18,6 @@ function App() {
   function handleButtonClick(){
     setLighting( !lighting )
   }
-  console.log(lighting)
 
   return (
     <ThemeProvider theme={myTheme} >
@@ -24,11 +25,10 @@ function App() {
       <StyledButtonDiv>
         <Button
           onclick={handleButtonClick}
-          hoverBackground={ lighting ? myTheme.color3 : myTheme.color1 }// this is wrong(hvbg)
           bgLight={myTheme.color3}
           bgDark={myTheme.color1}
         >
-          Lighting
+          {lighting ? (<MdDarkMode fontSize="1.5rem" />) : (<IoMdSunny fontSize="1.5rem" />)}
         </Button>
       </StyledButtonDiv>
 
